@@ -1,7 +1,11 @@
 <?php
- $f = 1; // Initialize $f as 1 for multiplication
- for($i = 1; $i <= 5; $i++) {
-     $f = $f * $i; // Calculate factorial
+function factorial($n){
+ $fact=1;
+ for($i=1; $i<=$n; $i++){
+   $fact *=$i;
  }
- echo "Factorial = " . $f; // Output the result
+ return $fact;
+}
+$number = 5;
+echo ("the number of the data is".factorail($naumber));
 ?>
