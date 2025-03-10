@@ -1,11 +1,24 @@
 <?php
-$age = 18; // Change this value to test
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST["name"];
+    $email = $_POST["email"];
 
-if ($age < 18) {
-    echo "You are a minor.";
-} elseif ($age >= 18 && $age <= 60) {
-    echo "You are an adult.";
-} else {
-    echo "You are a senior citizen.";
+    if (!empty($name) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "✅ Welcome, $name! Your email ($email) is valid.";
+    } else {
+        echo "❌ Invalid input. Please enter correct details.";
+    }
 }
 ?>
+<html>
+    <body>
+    <form method="POST">
+        <input type="text" name="name">
+        <br><br>
+        <input type="email" name="email">
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
